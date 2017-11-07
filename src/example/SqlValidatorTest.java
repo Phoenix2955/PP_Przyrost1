@@ -13,6 +13,11 @@ public class SqlValidatorTest {
         assertTrue(sqlValidator.validate("SELECT from xxxxxxx where ppppppp"));
     }
 
-    
+    @Test
+    public void simpleSelect1() {
+        assertFalse(sqlValidator.validate("FROM SELECT xxxxxxx where ppppppp"));
+    }
+
+
 
 }

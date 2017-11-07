@@ -14,15 +14,18 @@ public class SqlValidator {
         int selectIndex = trimmedUpperWords.indexOf("SELECT");
         int fromIndex = trimmedUpperWords.indexOf("FROM");
         int whereIndex = trimmedUpperWords.indexOf("WHERE");
+        int orderIndex = trimmedUpperWords.indexOf("ORDER");
 
-        if (selectIndex == -1 || fromIndex == -1 || whereIndex == -1) {
+        if (selectIndex == -1 && fromIndex == -1) {
             return false;
         }
 
-        if (selectIndex < fromIndex && fromIndex < whereIndex) {
+        if (selectIndex < fromIndex || fromIndex < whereIndex || fromIndex < orderIndex) {
             return true;
         }
 
         return false;
     }
+
+
 }
